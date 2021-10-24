@@ -1,0 +1,36 @@
+/*
+ * Oh god, css...
+ */
+
+body {
+    font-family: inconsolata;
+    background: #F0EDE3;
+    color: #33290A;
+}
+
+#topbar {
+    text-align: center;
+    background: #E0E0FF;
+    margin: 0em auto;
+    padding: 1em;
+    width: 50em;
+    border: thin solid;
+    border-color: #DDDACF #CCC8B8 #BBB59F;
+    box-shadow: 0 0.1em 0.3em #CCC8B8;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+
+#body {
+    margin: 0em auto;
+    padding: 1em;
+    width: 50em;
+}
+
+#body a {
+    color: #aaff00;
+}
+
+#body h2 {
+    font-size: 1.2em;
+}
