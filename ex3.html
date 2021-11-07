@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/code/gordon-web/temp/ex3.i.html</title>
+<meta name="Generator" content="Vim/8.1">
+<meta name="plugin-version" content="vim8.1_v1">
+<meta name="syntax" content="gordon">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="molokai-remix">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #e0e0da; background-color: #1b1d1e; }
+body { font-family: monospace; color: #e0e0da; background-color: #1b1d1e; }
+* { font-size: 1.05em; }
+.PreProc { color: #a6e22e; }
+.String { color: #e6db74; }
+.Character { color: #e6db74; }
+.LineNr { color: #bcbcbc; background-color: #232526; padding-bottom: 1px; }
+.Label { color: #e6db74; }
+.Keyword { color: #f92672; font-weight: bold; }
+.StorageClass { color: #fd971f; font-style: italic; }
+.Structure { color: #66d9ef; }
+.Comment { color: #56676b; }
+.Type { color: #66d9ef; }
+.Number { color: #ae81ff; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="PreProc">import</span> std.dyna;
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span><span class="Structure">struct</span> Box {
+<span id="L4" class="LineNr"> 4 </span>    <span class="Type">int</span>          id;
+<span id="L5" class="LineNr"> 5 </span>    <span class="StorageClass">const</span> <span class="Type">ubyte</span>~ buf;   <span class="Comment">// this is a pointer</span>
+<span id="L6" class="LineNr"> 6 </span>}
+<span id="L7" class="LineNr"> 7 </span>
+<span id="L8" class="LineNr"> 8 </span><span class="Type">int</span> main()
+<span id="L9" class="LineNr"> 9 </span>{
+<span id="L10" class="LineNr">10 </span>    Box box = {
+<span id="L11" class="LineNr">11 </span><span class="Label">        id  </span>: <span class="Number">7</span>,
+<span id="L12" class="LineNr">12 </span><span class="Label">        buf </span>: reserve(<span class="StorageClass">const</span> <span class="Type">ubyte</span>, <span class="Number">8</span>),
+<span id="L13" class="LineNr">13 </span>    };
+<span id="L14" class="LineNr">14 </span>
+<span id="L15" class="LineNr">15 </span>    <span class="Keyword">scope</span> box.buf.dispose();
+<span id="L16" class="LineNr">16 </span>
+<span id="L17" class="LineNr">17 </span>    box.buf.push(<span class="Character">'a'</span>);
+<span id="L18" class="LineNr">18 </span>    box.buf.push(<span class="Character">'b'</span>);
+<span id="L19" class="LineNr">19 </span>    box.buf.push(<span class="Character">'c'</span>);
+<span id="L20" class="LineNr">20 </span>    box.buf.pusha(<span class="String">&quot;-2.0&quot;</span>);
+<span id="L21" class="LineNr">21 </span>
+<span id="L22" class="LineNr">22 </span>    <span class="Type">ubyte</span> c = box.buf[<span class="Number">2</span>];
+<span id="L23" class="LineNr">23 </span>
+<span id="L24" class="LineNr">24 </span>    <span class="Keyword">return</span> <span class="Number">0</span>;
+<span id="L25" class="LineNr">25 </span>}
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
